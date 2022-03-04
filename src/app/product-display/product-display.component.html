@@ -1,0 +1,31 @@
+
+<div *ngFor = "let mobile of mobiles 
+                                    | orderBy: sortBy
+                                    |phoneFilter:searchProducts" class="card">
+    <div class="card-horizontal">
+        <div class="img images">
+            <figure>
+            <img class="mobile-image" [src]="mobile.imageUrl" alt="Card image cap">
+        </figure>
+        </div>
+        <div class="card-body">
+           <a routerLink = "/product-detail/{{mobile.id}}" style="text-decoration: none;">  <h4 class="card-title">{{mobile.name}}</h4></a>
+            <p class="card-text">{{mobile.snippet}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- <app-filter-textbox style="margin: 5rem;margin-left: 1rem;"></app-filter-textbox> -->
+
+<div class="left">
+    <h6>Search:</h6>
+<input type="text" [(ngModel)]="searchProducts" placeholder="Search">
+
+<h6 style="margin-top: 1rem;">Sort by:</h6>
+
+<select name="products" id="products" (change) = 'sortProducts($event)'>
+    <option value="age" selected>Newest</option>
+    <option value="name">Alphabetical</option>
+    
+</select>
+</div>

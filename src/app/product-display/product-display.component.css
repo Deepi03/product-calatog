@@ -1,0 +1,27 @@
+
+
+.card{
+    width:70%;
+    float: right;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+
+  .mobile-image{
+
+  }
+
+  .images{
+      
+  }
+
+  .left{
+      margin-top: 2rem;
+      margin-left: 1rem;
+  }

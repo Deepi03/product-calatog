@@ -1,0 +1,92 @@
+<main *ngIf = "phoneDetail">
+    <div class="link">
+        <a (click)="goBack()" class="back">back</a>
+   
+      </div>
+    <div class="main-div">
+   
+    <!-- <figure class="phone-main-image"> -->
+        <img [src]="phoneDetail.images[0]" [alt]="phoneDetail.name" class="big-phone">
+    <!-- </figure> -->
+
+    <section class="title-description-images">
+    <h3>{{phoneDetail.name}}</h3>
+    
+    <p style="font-size: 0.8rem;">{{phoneDetail.description}}</p>
+    
+    <div class="parent">
+        <div  *ngFor = "let phone of phoneDetail.images">
+                <figure >
+                    <img [src]="phone" alt="">
+                </figure>
+            
+        </div>
+    </div>
+</section>
+</div>
+
+      <section class="details">
+ 
+        <div>
+        
+            <ul>
+                <h5>Display screen</h5>
+            <li >{{ phoneDetail.display.screenResolution }}</li>
+            <li >{{ phoneDetail.display.screenSize }}</li>
+            <li >{{ phoneDetail.display.touchScreen }}</li>
+            
+           </ul>
+               
+        </div>
+
+
+        <div>
+            <ul>
+                <h5>Battery</h5>
+                <li><h6>Type</h6></li>
+                <li>{{phoneDetail.battery.type}}</li>
+                <li><h6>Talk Time</h6></li>
+                <li>{{phoneDetail.battery.talkTime}}</li>
+                <li><h6>Standby time(max)</h6></li>
+                <li>{{phoneDetail.battery.standbyTime}}</li>
+                
+            </ul>
+        </div>
+
+        <div>
+            <ul>
+                <h5>Storage and Memory</h5>
+                <li><h6>RAM</h6></li>
+                <li>{{phoneDetail.storage.ram}}</li>
+                <li><h6>Internal Storage</h6></li>
+                <li>{{phoneDetail.storage.flash}}</li>
+            </ul>
+        </div>
+          
+
+        <div>
+            <ul>
+                <h5>Connectivity</h5>
+                <li><h6>Network Support</h6></li>
+                <li><h6>WiFi</h6></li>
+                <li>{{phoneDetail.connectivity.wifi}}</li>
+                <li><h6>Bluetooth</h6></li>
+                <li>{{phoneDetail.connectivity.bluetooth}}</li>
+                <li><h6>Infrared</h6></li>
+                <li *ngIf = "!phoneDetail.connectivity.infrared; else elseBlock">&#215;</li>
+                <ng-template #elseBlock>
+                    &#10003;
+                </ng-template>
+                <li><h6>GPS</h6></li>
+                <li *ngIf = "!phoneDetail.connectivity.gps; else elseBlock1" >&#215;</li>
+                <ng-template #elseBlock1>
+                    &#10003;
+                </ng-template>
+            </ul>
+        </div>
+      </section>
+
+
+     
+</main>
+
